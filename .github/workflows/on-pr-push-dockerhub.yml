@@ -25,7 +25,7 @@ jobs:
       - name: Get DockerHub Tag Url
         working-directory: 'alanlima/c05-actions02'
         id: dockerhub_url
-        run: make get_dockerhub_url
+        run: echo "::set-output name=url::$(make get_dockerhub_url)"
 
       - name: Add Comment
         uses: jungwinter/comment@v1
@@ -36,4 +36,4 @@ jobs:
           body: |
             Hi **${{ secrets.ALIMA_NAME }}**
             A new docker image was built and pushed to docker hub.
-            ${{ toJson(steps.dockerhub_url.outputs) }}
+            ${{ steps.dockerhub_url.outputs.* }}
