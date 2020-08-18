@@ -23,6 +23,7 @@ jobs:
           make push
 
       - name: Get DockerHub Tag Url
+        working-directory: 'alanlima/c05-actions02'
         id: dockerhub_url
         run: make get_dockerhub_url
 
