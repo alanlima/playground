@@ -36,4 +36,4 @@ jobs:
           body: |
             Hi **${{ secrets.ALIMA_NAME }}**
             A new docker image was built and pushed to docker hub.
-            ${{ steps.dockerhub_url.outputs }}
+            ${{ toJson(steps.dockerhub_url.outputs) }}
