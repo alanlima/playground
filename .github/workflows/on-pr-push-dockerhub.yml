@@ -45,7 +45,7 @@ jobs:
 
             **Here if the URL for the docker image that I kindly pushed to docker hub: 🐳🐳🐳🐳**
 
-            [${{ steps.dockerhub.outputs.image_name }}](${{ steps.dockerhub.outputs.url }})
+            **[${{ steps.dockerhub.outputs.image_name }}](${{ steps.dockerhub.outputs.url }})**
 
             ```bash
             docker pull ${{ steps.dockerhub.outputs.image_name }}
