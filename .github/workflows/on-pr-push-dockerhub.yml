@@ -41,8 +41,6 @@ jobs:
             Well done **${{ secrets.ALIMA_NAME }}**, you are the best 🎊🎊🎊
             You wrote a fantastic code 🧡🧡🧡🧡
 
-            🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
-
             **Here if the URL for the docker image that I kindly pushed to docker hub: 🐳🐳🐳🐳**
 
             **[${{ steps.dockerhub.outputs.image_name }}](${{ steps.dockerhub.outputs.url }})**
@@ -52,3 +50,5 @@ jobs:
             ```
 
             Looking forward to help you again 😜
+            
+            🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
