@@ -26,9 +26,10 @@ jobs:
 
       - name: Get DockerHub Tag Url
         working-directory: 'alanlima/c05-actions02'
-        id: dockerhub_url
+        id: dockerhub
         shell: bash
-        run: echo "::set-output name=url::$(make get_dockerhub_url)"
+        run: make ci_github_set_outputs
+        # run: echo "::set-output name=url::$(make get_dockerhub_url)"
 
       - name: Add Comment
         uses: jungwinter/comment@v1
@@ -44,6 +45,10 @@ jobs:
 
             **Here if the URL for the docker image that I kindly pushed to docker hub: 🐳🐳🐳🐳**
 
-            ${{ steps.dockerhub_url.outputs.url }}
+            [${{ steps.dockerhub.outputs.image_name }}](${{ steps.dockerhub.outputs.url }})
+
+            ```bash
+            docker pull ${{ steps.dockerhub.outputs.image_name }}
+            ```
 
             Looking forward to help you again 😜

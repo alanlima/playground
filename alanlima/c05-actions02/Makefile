@@ -22,5 +22,10 @@ get_dockerhub_url:
 	@echo "https://hub.docker.com/repository/docker/${DOCKER_REGISTRY}/${IMAGE_NAME}/tags?page=1&name=${COMMIT_SHA}"
 .PHONY:get_dockerhub_url
 
+ci_github_set_outputs:
+	@echo "::set-output name=url::$(make get_dockerhub_url)"
+	@echo "::set-output name=image_name::${DOCKER_REGISTRY}/${IMAGE_NAME}:${COMMIT_SHA}"
+.PHONY:ci_github_set_outputs
+
 all: build push
 .PHONY: all
