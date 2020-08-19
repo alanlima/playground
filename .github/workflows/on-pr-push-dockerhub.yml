@@ -35,6 +35,12 @@ jobs:
           issue_number: ${{ github.event.number }}
           token: ${{ secrets.ALIMA_TOKEN }}
           body: |
-            Hi **${{ secrets.ALIMA_NAME }}**
-            A new docker image was built and pushed to docker hub.
+            Hi **${{ secrets.ALIMA_NAME }}**,
+            Well done 🎊🎊🎊
+            You wrote a fantastic code 🧡
+            🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+
+            Here if the URL for the docker image 🐳🐳🐳🐳 that I kindly pushed to docker hub: 🥰🥰
             ${{ steps.dockerhub_url.outputs.url }}
+
+            Looking forward to help you again 😜
