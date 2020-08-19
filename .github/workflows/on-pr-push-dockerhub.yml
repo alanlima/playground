@@ -15,11 +15,18 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v2
 
+      - name: Dump github
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo $GITHUB_CONTEXT
+
       - name: Build and Push Image
         working-directory: 'alanlima/c05-actions02'
+        env:
+          DOCKER_TOKEN: ${{ secrets.ALIMA_DOCKER_TOKEN }}
         run: |
           make build
-          make login DOCKER_TOKEN=${{ secrets.ALIMA_DOCKER_TOKEN }}
+          make login
           make push
 
       - name: Get DockerHub Tag Url
@@ -38,9 +45,13 @@ jobs:
             Hi **${{ secrets.ALIMA_NAME }}**,
             Well done 🎊🎊🎊
             You wrote a fantastic code 🧡
+
             🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 
-            Here if the URL for the docker image 🐳🐳🐳🐳 that I kindly pushed to docker hub: 🥰🥰
-            ${{ steps.dockerhub_url.outputs.url }}
+            Here if the URL for the docker image that I kindly pushed to docker hub: 🐳🐳🐳🐳
+
+            <a href="${{ steps.dockerhub_url.outputs.url }}" target="_blank">
+              #${{ github.sha }}
+            </a>
 
             Looking forward to help you again 😜
